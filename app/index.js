@@ -23,5 +23,8 @@ module.exports = generators.Base.extend({
       this.destinationPath('package.json'),
       { appName: this.appName }
     );
+  },
+  installing: function(){
+    this.npmInstall();
   }
 });
