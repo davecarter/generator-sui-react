@@ -3,10 +3,25 @@ var generators = require('yeoman-generator');
 module.exports = generators.NamedBase.extend();
 
 module.exports = generators.Base.extend({
-  method1: function () {
-    console.log('method 1 just ran');
+  prompting: function () {
+    var done = this.async();
+
+    this.prompt({
+      type    : 'input',
+      name    : 'name',
+      message : 'What is your component name',
+      default : this.appname // Default to current folder name
+    }, function (answers) {
+      this.appName = answers.name;
+      this.log(this.appName);
+      done();
+    }.bind(this));
   },
-  method2: function () {
-    console.log('method 2 just ran');
+  writing: function () {
+    this.fs.copyTpl(
+      this.templatePath('_package.json'),
+      this.destinationPath('package.json'),
+      { appName: this.appName }
+    );
   }
 });
