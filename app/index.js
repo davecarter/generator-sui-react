@@ -72,6 +72,10 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_gitignore'),
       this.destinationPath('.gitignore'));
+    
+    this.fs.copyTpl(
+      this.templatePath('_npmignore'),
+      this.destinationPath('.npmignore'));
 
   },
   installing: function(){
