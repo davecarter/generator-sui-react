@@ -1,7 +1,7 @@
 {
   "name": "<%= component_name %>",
   "version": "0.0.0",
-  "main": "src/<%= pascal_name %>.js",
+  "main": "dist/",
   "scripts": {
     "start": "webpack-dev-server -d --hot --inline --progress --colors --port 8080",
     "test": "karma start"

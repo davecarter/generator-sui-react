@@ -6,10 +6,10 @@ module.exports = function (config) {
     singleRun: true, //just run once by default
     frameworks: [ 'mocha' ], //use the mocha test framework
     files: [
-      'test/<%= component_name %>_test.js' //just load this file
+      'test/<%= component_name %>-test.js' //just load this file
     ],
     preprocessors: {
-      'test/<%= component_name %>_test.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
+      'test/<%= component_name %>-test.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
     },
     reporters: [ 'mocha' ], //report results in this format
     mochaReporter: {
