@@ -39,7 +39,7 @@ var common = {
         // we are using `eslint-loader` explicitly since
         // we have eslint module installed. This way we
         // can be certain that it uses the right loader
-        loaders: ['eslint', 'jscs'],
+        loaders: ['jscs'],
         include: path.join(ROOT_PATH, 'src'),
       }
     ],
@@ -47,10 +47,6 @@ var common = {
       {
         test: /\.css$/,
         loaders: ['style', 'css']
-      },
-      { 
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
       }
     ]
   },
