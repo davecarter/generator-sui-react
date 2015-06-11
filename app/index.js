@@ -28,35 +28,43 @@ module.exports = generators.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('_karma.conf.js'),
-      this.destinationPath('karma.conf.js'),
-      { component_name: this.component_name }
+      this.destinationPath('karma.conf.js')
     );
 
     this.fs.copyTpl(
       this.templatePath('test/_test.js'),
       this.destinationPath('test/' + this.component_name + '-test.js'),
-      { component_name: this.component_name }
+      { 
+        component_name: this.component_name,
+        pascal_name: this.pascal_name 
+      }
     );
 
     this.fs.copyTpl(
       this.templatePath('src/component/_index.jsx'),
       this.destinationPath('src/' + this.component_name + '/index.jsx'),
-      { component_name: this.component_name,
-        pascal_name: this.pascal_name }
+      { 
+        component_name: this.component_name,
+        pascal_name: this.pascal_name 
+      }
     );
 
     this.fs.copyTpl(
       this.templatePath('src/component/_component.scss'),
       this.destinationPath('src/' + this.component_name + '/' + this.component_name + '.scss'),
-      { component_name: this.component_name,
-        pascal_name: this.pascal_name }
+      { 
+        component_name: this.component_name,
+        pascal_name: this.pascal_name 
+      }
     );
 
     this.fs.copyTpl(
       this.templatePath('src/_index.jsx'),
       this.destinationPath('src/index.jsx'),
-      { component_name: this.component_name,
-        pascal_name: this.pascal_name }
+      { 
+        component_name: this.component_name,
+        pascal_name: this.pascal_name 
+      }
     );
 
     this.fs.copyTpl(
@@ -73,17 +81,20 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('docs/_index.jsx'),
       this.destinationPath('docs/index.jsx'),
-      { component_name: this.component_name,
-        pascal_name: this.pascal_name }
+      { 
+        component_name: this.component_name,
+        pascal_name: this.pascal_name 
+      }
     );
 
     this.fs.copyTpl(
-      this.templatePath('_test.webpack.js'),
-      this.destinationPath('test.webpack.js'));
+      this.templatePath('docs/_server.js'),
+      this.destinationPath('docs/server.js')
+    );
 
     this.fs.copyTpl(
-      this.templatePath('_webpack.config.js'),
-      this.destinationPath('webpack.config.js'));
+      this.templatePath('_jscsrc'),
+      this.destinationPath('.jscsrc'));
 
     this.fs.copyTpl(
       this.templatePath('_gitignore'),
@@ -93,6 +104,13 @@ module.exports = generators.Base.extend({
       this.templatePath('_npmignore'),
       this.destinationPath('.npmignore'));
 
+    this.fs.copyTpl(
+      this.templatePath('_test.webpack.js'),
+      this.destinationPath('test.webpack.js'));
+
+    this.fs.copyTpl(
+      this.templatePath('_webpack.config.js'),
+      this.destinationPath('webpack.config.js'));
   },
   installing: function(){
     this.npmInstall();

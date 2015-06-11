@@ -6,10 +6,10 @@ module.exports = function (config) {
     singleRun: true, //just run once by default
     frameworks: [ 'mocha' ], //use the mocha test framework
     files: [
-      'test/<%= component_name %>-test.js' //just load this file
+      'test/**/*-test.js' //just load this file
     ],
     preprocessors: {
-      'test/<%= component_name %>-test.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
+      'test/**/*-test.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
     },
     reporters: [ 'mocha' ], //report results in this format
     mochaReporter: {
@@ -17,16 +17,15 @@ module.exports = function (config) {
     },
     webpack: { //kind of a copy of your webpack config
       devtool: 'inline-source-map', //just do inline source maps instead of the default
+      resolve: {
+        extensions: ['', '.js', '.jsx'],
+      },
       module: {
         loaders: [
           { 
-            test: /\.js$/, 
+            test: /\.jsx?$/, 
             exclude: /(node_modules)/,
             loader: 'babel-loader' 
-          },
-          {
-            test: /\.scss$/,
-            loader: "style!css!sass"
           }]
       }
     },

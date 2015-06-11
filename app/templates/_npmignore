@@ -1,4 +1,7 @@
-node_modules
-src
-test
-npm-debug.log
+test.webpack.js
+webpack.config.js
+karma.conf.js
+test/
+src/
+node_modules/
+docs/
