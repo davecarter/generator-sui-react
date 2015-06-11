@@ -1,5 +1,6 @@
 var generators = require('yeoman-generator');
 var pascalCase = require('pascal-case');
+var dasherize = require( 'underscore.string' ).dasherize;
 
 module.exports = generators.NamedBase.extend();
 
@@ -46,13 +47,16 @@ module.exports = generators.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('src/component/_component.scss'),
-      this.destinationPath('src/' + this.component_name + '/' + this.component_name + '.scss')
+      this.destinationPath('src/' + this.component_name + '/' + this.component_name + '.scss'),
+      { component_name: this.component_name,
+        pascal_name: this.pascal_name }
     );
 
     this.fs.copyTpl(
       this.templatePath('src/_index.jsx'),
       this.destinationPath('src/index.jsx'),
-      { pascal_name: this.pascal_name }
+      { component_name: this.component_name,
+        pascal_name: this.pascal_name }
     );
 
     this.fs.copyTpl(
@@ -69,7 +73,8 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('docs/_index.jsx'),
       this.destinationPath('docs/index.jsx'),
-      { component_name: this.pascal_name }
+      { component_name: this.component_name,
+        pascal_name: this.pascal_name }
     );
 
     this.fs.copyTpl(
