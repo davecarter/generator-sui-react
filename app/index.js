@@ -28,8 +28,7 @@ module.exports = generators.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('_karma.conf.js'),
-      this.destinationPath('karma.conf.js')
-    );
+      this.destinationPath('karma.conf.js'));
 
     this.fs.copyTpl(
       this.templatePath('test/_test.js'),
@@ -88,11 +87,6 @@ module.exports = generators.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('docs/_server.js'),
-      this.destinationPath('docs/server.js')
-    );
-
-    this.fs.copyTpl(
       this.templatePath('_jscsrc'),
       this.destinationPath('.jscsrc'));
 
@@ -104,13 +98,6 @@ module.exports = generators.Base.extend({
       this.templatePath('_npmignore'),
       this.destinationPath('.npmignore'));
 
-    this.fs.copyTpl(
-      this.templatePath('_test.webpack.js'),
-      this.destinationPath('test.webpack.js'));
-
-    this.fs.copyTpl(
-      this.templatePath('_webpack.config.js'),
-      this.destinationPath('webpack.config.js'));
   },
   installing: function(){
     this.npmInstall();
