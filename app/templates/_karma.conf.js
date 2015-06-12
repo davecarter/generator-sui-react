@@ -4,6 +4,8 @@ module.exports = function (config) {
   config.set({
     browsers: [ 'Chrome' ], //run in Chrome
     frameworks: [ 'mocha' ], //use the mocha test framework
+    autoWatch: false,
+    singleRun: true,
     files: [
       'test/**/*-test.js' //just load this file
     ],

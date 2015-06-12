@@ -7,7 +7,7 @@
     "start": "webpack-dev-server -d --hot --inline --progress --colors --port 8080",
 
     "test": "karma start",
-    "test:watch": "npm test -- --auto-watch",
+    "test:watch": "npm test -- --auto-watch --no-single-run",
 
     "dist": "npm run dist:js",
     "dist:js": "babel src --out-dir dist",
