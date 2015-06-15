@@ -74,7 +74,8 @@ module.exports = generators.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('docs/_index.html'),
-      this.destinationPath('docs/index.html')
+      this.destinationPath('docs/index.html'),
+      { component_name: this.component_name }
     );
 
     this.fs.copyTpl(

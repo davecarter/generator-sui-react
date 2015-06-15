@@ -3,15 +3,16 @@
   "version": "0.0.0",
   "main": "dist/",
   "scripts": {
-
-    "start": "webpack-dev-server -d --hot --inline --progress --colors --port 8080",
-
+    "start": "parallelshell 'npm run docs' 'npm run serve'",
+    "serve": "browser-sync start --server docs --files 'docs/dist/*.*'",
     "test": "karma start",
     "test:watch": "npm test -- --auto-watch --no-single-run",
-
     "dist": "npm run dist:js && npm run dist:css",
     "dist:js": "babel src --out-dir dist",
-    "dist:css": "node-sass src/index.scss dist/scm-generator-test.css"
+    "dist:css": "node-sass src/index.scss dist/<%= component_name %>.css",
+    "docs": "npm run docs:js && npm run docs:css",
+    "docs:js": "watchify -t babelify --extension .jsx docs/index.jsx -o docs/dist/index.js",
+    "docs:css": "node-sass src/index.scss docs/dist/<%= component_name %>.css"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,8 @@
   "devDependencies": {
     "babel": "^5.5.6",
     "babelify": "^6.0.2",
+    "browser-sync": "^2.7.10",
+    "browserify": "^10.2.4",
     "expect": "^1.6.0",
     "karma": "^0.12.33",
     "karma-browserify": "^4.1.2",
@@ -35,7 +38,9 @@
     "karma-spec-reporter": "0.0.19",
     "mocha": "^2.2.5",
     "node-sass": "^3.1.2",
+    "parallelshell": "^1.1.1",
     "phantomjs-polyfill": "0.0.1",
-    "precommit-hook": "^2.0.1"
+    "precommit-hook": "^2.0.1",
+    "watchify": "^3.2.2"
   }
 }
