@@ -88,10 +88,6 @@ module.exports = generators.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('_jscsrc'),
-      this.destinationPath('.jscsrc'));
-
-    this.fs.copyTpl(
       this.templatePath('_gitignore'),
       this.destinationPath('.gitignore'));
     

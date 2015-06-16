@@ -15,7 +15,11 @@
     "open:dev": "opener http://localhost:1337",
     "serve": "http-server -p 1337 docs/",
     "live-reload": "live-reload --port 1338 docs/",
-    "dev": "npm run open:dev -s & parallelshell 'npm run live-reload -s' 'npm run serve -s' 'npm run watch -s'"
+    "dev": "npm run open:dev -s & parallelshell 'npm run live-reload -s' 'npm run serve -s' 'npm run watch -s'",
+    
+    "lint": "npm run lint:jscs && npm run lint:eslint",
+    "lint:jscs": "jscs src/",
+    "lint:eslint": "eslint --ext=\".js\" --ext=\".jsx\" src/"
   },
   "repository": {
     "type": "git",
@@ -30,9 +34,14 @@
   "devDependencies": {
     "acorn": "^1.2.2",
     "babel": "^5.5.6",
+    "babel-eslint": "~3.1.14",
     "babelify": "^6.1.2",
+    "babel-jscs": "^1.0.1",
     "browserify": "^10.2.4",
     "expect": "^1.6.0",
+    "jscs": "~1.13.1",
+    "eslint": "~0.22.1",
+    "eslint-plugin-react": "~2.5.0",
     "http-server": "^0.8.0",
     "karma": "^0.12.33",
     "karma-browserify": "^4.1.2",
@@ -51,6 +60,6 @@
     "parallelshell": "^1.1.1",
     "phantomjs-polyfill": "0.0.1",
     "watchify": "^3.2.2",
-    "@schibstedspain/pre-commit-reactjs": "^1.0.1"
+    "@schibstedspain/pre-commit-reactjs": "^2.0.0"
   }
 }
