@@ -50,6 +50,7 @@
     "opener": "^1.4.1",
     "parallelshell": "^1.1.1",
     "phantomjs-polyfill": "0.0.1",
-    "precommit-hook": "^2.0.1"
+    "watchify": "^3.2.2",
+    "@schibstedspain/pre-commit-reactjs": "^1.0.1"
   }
 }
