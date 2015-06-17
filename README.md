@@ -1,22 +1,32 @@
 # generator-sui-react
 A yeoman generator for Schibsted ReactJS components
 
-## Usage
-1. Clone this repository in your local file system
-2. Run the following command for linking yeoman generator to your local directory:
+## Previous steps
+Assuming you have node and npm installed, make sure you also have yeoman installed by typing:
+````
+$ yeoman
+````
+If the system doesn't recognize the command, install it by typing (http://yeoman.io/):
+````
+$ npm install -g yo
+````
+
+## Installation
+Type ```npm-login```in your CLI and log in as schibstedspain for accesing our private npm repository. Then, do:
 ```
-npm link
+$ npm install @schibstedspain/generator-sui-react
 ```
-3: Create a folder for your component in the desired path with:
+
+## Create your first package
+Create a folder for your component in the desired path with:
 ```
-mkdir rc-YourComponent // use "rc-" preffix and PascalCase
+$ mkdir sui-your-component-name // we use 'sui-' as a preffix for all the ReactJS components
 ```
-4: If Yeoman is **not** previously installed run:
+Launch the generator by typing:
 ```
-npm install -g yo
+$ yo react-component
 ```
-5: Launch the component generator by running:
+You will be prompted about the component name and the github repository url (which you should be created already), and that's it! To test everything works, just type:
+````
+$ npm run dev
 ```
-yo react-component
-```
-6: Enjoy! :)
