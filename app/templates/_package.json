@@ -17,15 +17,17 @@
     "live-reload": "live-reload --port 1338 docs/",
     "dev": "npm run open:dev -s & parallelshell 'npm run live-reload -s' 'npm run serve -s' 'npm run watch -s'",
     
-    "lint": "npm run lint:jscs && npm run lint:eslint",
+    "lint": "npm run lint:jscs && npm run lint:eslint && lint:css",
     "lint:jscs": "jscs src/",
-    "lint:eslint": "eslint --ext=\".js\" --ext=\".jsx\" src/"
+    "lint:eslint": "eslint --ext=\".js\" --ext=\".jsx\" src/",
+    "lint:css": "node-sass src -o .tmp; rm .tmp/index.css; csslint .tmp"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/scm-spain/<%= component_name %>.git"
   },
   "pre-commit": [
+    "lint",
     "test"
   ],
   "dependencies": {
@@ -37,6 +39,7 @@
     "babel-jscs": "^1.0.1",
     "babelify": "^6.1.2",
     "browserify": "^10.2.4",
+    "csslint": "^0.10.0",
     "eslint": "~0.22.1",
     "eslint-plugin-react": "~2.5.0",
     "expect": "^1.6.0",
