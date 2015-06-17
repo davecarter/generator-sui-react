@@ -24,7 +24,7 @@ $ mkdir sui-your-component-name // we use 'sui-' as a preffix for all the ReactJ
 ```
 Launch the generator by typing:
 ```
-$ yo react-component
+$ yo @schibstedspain/sui-react
 ```
 You will be prompted about the component name and the github repository url (which you should be created already), and that's it! To test everything works, just type:
 ````
