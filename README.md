@@ -11,7 +11,11 @@ npm link
 ```
 mkdir rc-YourComponent // use "rc-" preffix and PascalCase
 ```
-4: Inside the new directory, run:
+4: If Yeoman is **not** previously installed run:
+```
+npm install -g yo
+```
+5: Launch the component generator by running:
 ```
 yo react-component
 ```
