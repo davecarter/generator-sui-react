@@ -20,7 +20,7 @@ module.exports = generators.Base.extend({
       message : 'What is your component remote github repository url',
       required : true
     }], function (answers) {
-      name = answers.name.match( /sui\-/ ) ? answers.name : 'sui-' + answers.name;
+      name = answers.name.match( /sui\-?/ ) != null ? answers.name : 'sui-' + answers.name;
       this.component_name = dasherize(name);
       this.pascal_name = pascalCase(this.component_name.replace( 'sui-', '' ));
       this.github_url = answers.github_url;
