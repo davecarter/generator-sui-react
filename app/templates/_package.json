@@ -21,7 +21,7 @@
     "test": "karma start",
     "test:watch": "karma start --autoWatch",
 
-    "dev": "npm run dev:serve && npm run dev:open",
+    "dev": "npm run dev:open && npm run dev:serve",
     "dev:serve": "webpack-dev-server --devtool eval --progress --colors --content-base docs/",
     "dev:open": "opener http://localhost:8080"
   },

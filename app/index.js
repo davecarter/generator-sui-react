@@ -31,6 +31,10 @@ module.exports = generators.Base.extend({
       this.destinationPath('karma.conf.js'));
 
     this.fs.copyTpl(
+      this.templatePath('_webpack.config.js'),
+      this.destinationPath('webpack.config.js'));
+
+    this.fs.copyTpl(
       this.templatePath('test/_test.js'),
       this.destinationPath('test/' + this.component_name + '-test.js'),
       { 
@@ -97,6 +101,7 @@ module.exports = generators.Base.extend({
 
   },
   installing: function(){
+    this.spawnCommand('git', ['init']);
     this.npmInstall();
   }
 });
