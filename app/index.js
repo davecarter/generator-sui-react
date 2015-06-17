@@ -114,7 +114,7 @@ module.exports = generators.Base.extend({
   installing: function(){
     this.spawnCommand('git', ['init']).on('close', function(){
       this.spawnCommand('git', ['remote', 'add', 'origin', this.github_url]);
-    });
+    }.bind(this));
     this.npmInstall();
   }
 });
