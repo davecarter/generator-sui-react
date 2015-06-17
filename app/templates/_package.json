@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/scm-spain/<%= component_name %>.git"
+    "url": "<%= github_url %>"
   },
   "pre-commit": [
     "lint",
@@ -47,18 +47,15 @@
     "eslint": "~0.23.0",
     "eslint-plugin-react": "~2.5.0",
     "expect": "^1.6.0",
-    "http-server": "^0.8.0",
     "jscs": "~1.13.1",
     "karma": "^0.12.33",
     "karma-chrome-launcher": "^0.1.12",
     "karma-cli": "0.0.4",
     "karma-mocha": "^0.1.10",
-    "karma-mocha-reporter": "^1.0.2",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-spec-reporter": "0.0.19",
     "karma-webpack": "^1.5.1",
-    "live-reload": "^1.1.0",
-    "lodash": "^3.9.3",
+    "lodash": "~3.9.3",
     "mocha": "^2.2.5",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.1.2",

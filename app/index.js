@@ -8,14 +8,22 @@ module.exports = generators.Base.extend({
   prompting: function () {
     var done = this.async();
 
-    this.prompt({
+    this.prompt([{
       type    : 'input',
       name    : 'name',
-      message : 'What is your component name',
+      message : 'What is your component name ( ex.: "your-component-name" )',
       default : this.appname // Default to current folder name
-    }, function (answers) {
-      this.component_name = 'scm-' + dasherize(answers.name);
-      this.pascal_name = pascalCase(answers.name);
+    },
+    {
+      type    : 'input',
+      name    : 'github_url',
+      message : 'What is your component remote github repository url',
+      required : true
+    }], function (answers) {
+      name = answers.name.match( /sui\-/ ) ? answers.name : 'sui-' + answers.name;
+      this.component_name = dasherize(name);
+      this.pascal_name = pascalCase(this.component_name.replace( 'sui-', '' ));
+      this.github_url = answers.github_url;
       done();
     }.bind(this));
   },
@@ -23,7 +31,10 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'),
-      { component_name: this.component_name }
+      { 
+        component_name: this.component_name,
+        github_url: this.github_url
+      }
     );
 
     this.fs.copyTpl(
@@ -102,6 +113,7 @@ module.exports = generators.Base.extend({
   },
   installing: function(){
     this.spawnCommand('git', ['init']);
+    this.spawnCommand('git', ['remote', 'add', 'origin', this.github_url]);
     this.npmInstall();
   }
 });

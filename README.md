@@ -1,5 +1,5 @@
-# generator-react-component
-A yeoman generator for react components
+# generator-sui-react
+A yeoman generator for Schibsted ReactJS components
 
 ## Usage
 1. Clone this repository in your local file system
