@@ -19,4 +19,4 @@ npm install -g yo
 ```
 yo react-component
 ```
-5: Enjoy! :)
+6: Enjoy! :)
