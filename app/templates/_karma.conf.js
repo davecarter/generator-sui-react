@@ -1,27 +1,40 @@
 module.exports = function (config) {
   config.set({
-    browsers: [ 'PhantomJS' /*, 'Chrome' */ ],
+    browsers: [ 'PhantomJS' /*, 'Chrome'*/ ],
 
-    frameworks: [ 'browserify', 'mocha' ],
+    frameworks: [ 'mocha' ],
 
     autoWatch: false,
     singleRun: true,
-    
+
+    preprocessors: {
+      'test/**/*-test.js': [ 'webpack' ]
+    },
+
     files: [
       './node_modules/phantomjs-polyfill/bind-polyfill.js',
       'test/**/*-test.js'
     ],
 
-    preprocessors: {
-      'test/**/*-test.js': [ 'browserify' ]
+    webpack: {
+      resolve: {
+        extensions: ['', '.js', '.jsx'],
+      },
+      module: {
+        loaders: [
+          {
+            test: /\.jsx?$/,
+            loaders: [ 'babel-loader' ],
+            exclude: /(node_modules)/
+          }
+        ]
+      },
     },
 
-    reporters: [ 'spec' ],
+    webpackServer: {
+      noInfo: true
+    },
 
-    browserify: {
-      debug: true,
-      extensions: ['.js', '.jsx'],
-      transform: [ 'babelify' ]
-    }    
+    reporters: [ 'spec' ]
   });
 };
