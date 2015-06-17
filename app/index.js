@@ -1,5 +1,6 @@
 var generators = require('yeoman-generator');
 var pascalCase = require('pascal-case');
+var dasherize = require( 'underscore.string' ).dasherize;
 
 module.exports = generators.NamedBase.extend();
 
@@ -7,14 +8,22 @@ module.exports = generators.Base.extend({
   prompting: function () {
     var done = this.async();
 
-    this.prompt({
+    this.prompt([{
       type    : 'input',
       name    : 'name',
-      message : 'What is your component name',
+      message : 'What is your component name ( ex.: "your-component-name" )',
       default : this.appname // Default to current folder name
-    }, function (answers) {
-      this.component_name = 'rc-' + pascalCase(answers.name);
-      this.pascal_name = pascalCase(answers.name);
+    },
+    {
+      type    : 'input',
+      name    : 'github_url',
+      message : 'What is your component remote github repository url',
+      required : true
+    }], function (answers) {
+      name = answers.name.match( /sui\-/ ) ? answers.name : 'sui-' + answers.name;
+      this.component_name = dasherize(name);
+      this.pascal_name = pascalCase(this.component_name.replace( 'sui-', '' ));
+      this.github_url = answers.github_url;
       done();
     }.bind(this));
   },
@@ -22,52 +31,76 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'),
-      { component_name: this.component_name,
-        pascal_name: this.pascal_name }
+      { 
+        component_name: this.component_name,
+        github_url: this.github_url
+      }
     );
 
     this.fs.copyTpl(
       this.templatePath('_karma.conf.js'),
-      this.destinationPath('karma.conf.js'),
-      { component_name: this.pascal_name }
-    );
+      this.destinationPath('karma.conf.js'));
+
+    this.fs.copyTpl(
+      this.templatePath('_webpack.config.js'),
+      this.destinationPath('webpack.config.js'));
 
     this.fs.copyTpl(
       this.templatePath('test/_test.js'),
-      this.destinationPath('test/' + this.pascal_name + '_test.js'),
-      { component_name: this.pascal_name }
+      this.destinationPath('test/' + this.component_name + '-test.js'),
+      { 
+        component_name: this.component_name,
+        pascal_name: this.pascal_name 
+      }
     );
 
     this.fs.copyTpl(
-      this.templatePath('src/_component.js'),
-      this.destinationPath('src/' + this.pascal_name + '.js'),
-      { component_name: this.pascal_name }
+      this.templatePath('src/component/_index.jsx'),
+      this.destinationPath('src/' + this.component_name + '/index.jsx'),
+      { 
+        component_name: this.component_name,
+        pascal_name: this.pascal_name 
+      }
     );
 
     this.fs.copyTpl(
-      this.templatePath('src/_component.scss'),
-      this.destinationPath('src/' + this.pascal_name + '.scss')
+      this.templatePath('src/component/_component.scss'),
+      this.destinationPath('src/' + this.component_name + '/' + this.component_name + '.scss'),
+      { 
+        component_name: this.component_name,
+        pascal_name: this.pascal_name 
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('src/_index.jsx'),
+      this.destinationPath('src/index.jsx'),
+      { 
+        component_name: this.component_name,
+        pascal_name: this.pascal_name 
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('src/_index.scss'),
+      this.destinationPath('src/index.scss'),
+      { component_name: this.component_name }
     );
 
     this.fs.copyTpl(
       this.templatePath('docs/_index.html'),
       this.destinationPath('docs/index.html'),
-      { component_name: this.pascal_name }
+      { component_name: this.component_name }
     );
 
     this.fs.copyTpl(
-      this.templatePath('docs/_index.js'),
-      this.destinationPath('docs/index.js'),
-      { component_name: this.pascal_name }
+      this.templatePath('docs/_index.jsx'),
+      this.destinationPath('docs/index.jsx'),
+      { 
+        component_name: this.component_name,
+        pascal_name: this.pascal_name 
+      }
     );
-
-    this.fs.copyTpl(
-      this.templatePath('_test.webpack.js'),
-      this.destinationPath('test.webpack.js'));
-
-    this.fs.copyTpl(
-      this.templatePath('_webpack.config.js'),
-      this.destinationPath('webpack.config.js'));
 
     this.fs.copyTpl(
       this.templatePath('_gitignore'),
@@ -79,6 +112,8 @@ module.exports = generators.Base.extend({
 
   },
   installing: function(){
+    this.spawnCommand('git', ['init']);
+    this.spawnCommand('git', ['remote', 'add', 'origin', this.github_url]);
     this.npmInstall();
   }
 });

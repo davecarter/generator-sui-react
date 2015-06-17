@@ -1,19 +1,33 @@
 {
-  "name": "generator-react-component",
+  "name": "generator-sui-react",
   "version": "1.0.0",
   "description": "A generator for react components",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "yeoman-generator",
     "react"
   ],
-  "author": "@dandel and @d4vecarter",
+  "contributors": [
+    {
+      "name": "Daniel de la Cruz",
+      "email": "daniel.delacruz@scmspain.com",
+      "url": "https://github.com/danderu"
+    },
+    {
+      "name": "David Garcia",
+      "email": "david.garcia@scmspain.com",
+      "url": "https://github.com/davecarter"
+    },
+    {
+      "name": "Carlos Villuendas",
+      "email": "carlos.villuendas@scmspain.com",
+      "url": "https://github.com/carlosvillu"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "pascal-case": "^1.1.1",
+    "underscore.string": "^3.1.1",
     "yeoman-generator": "^0.20.1"
   }
 }

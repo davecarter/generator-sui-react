@@ -1,4 +1,12 @@
+.tmp
+dist
+docs
 node_modules
-src
 test
+.editorconfig
+.eslintrc
+.gitignore
+.jscsrc
+karma.conf.js
 npm-debug.log
+webpack.config.js
