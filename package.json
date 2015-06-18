@@ -1,8 +1,12 @@
 {
   "name": "@schibstedspain/generator-sui-react",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "A generator for react components",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:scm-spain/generator-sui-react.git"
+  },
   "keywords": [
     "yeoman-generator",
     "react"

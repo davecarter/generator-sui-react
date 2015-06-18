@@ -37,7 +37,7 @@
     "react": "^0.13.3"
   },
   "devDependencies": {
-    "@schibstedspain/pre-commit-reactjs": "^2.2.0",
+    "@schibstedspain/pre-commit-reactjs": "^3.0.0",
     "babel": "^5.5.6",
     "babel-eslint": "~3.1.14",
     "babel-jscs": "^1.0.1",
