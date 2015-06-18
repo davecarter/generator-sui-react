@@ -4,9 +4,6 @@ module.exports = function (config) {
 
     frameworks: [ 'mocha' ],
 
-    autoWatch: false,
-    singleRun: true,
-
     preprocessors: {
       'test/**/*-test.js': [ 'webpack' ]
     },

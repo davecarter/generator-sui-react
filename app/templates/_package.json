@@ -18,8 +18,8 @@
     "lint:css": "node-sass src -o .tmp; rm .tmp/index.css; csslint .tmp",
     "postlint": "npm run clean:tmp",
 
-    "test": "karma start",
-    "test:watch": "karma start --autoWatch",
+    "test": "karma start --singleRun",
+    "test:watch": "karma start",
 
     "dev": "npm run dev:open && npm run dev:serve",
     "dev:serve": "webpack-dev-server --devtool eval --progress --colors --content-base docs/",
