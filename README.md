@@ -7,7 +7,7 @@ The generator provides a basic structure to start developing a component, includ
 * Automatic installation of all npm dependencies
 * Linting rules for all ```js```, ```jsx```and ```css```files
 * Support for ECMAScript 6
-* Unit tests environment
+* Unit testing environment
 * A local development environment with webpack
 * Documentation folder
 * Pre-commit rules for launching linting and tests before commiting changes in Github
