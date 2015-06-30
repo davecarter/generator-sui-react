@@ -37,9 +37,9 @@ This will produce a release tag in Github in order to keep track of the differen
 ```
 $ npm publish .
 ```
-And that's all! You should be able to install your component from another repository. For example, if your component is named `sui-button`, you can installing with:
+And that's all! You should be able to install your component from another repository. For example:
 ```
-$ npm install -g @schibstedspain/sui-button --save-dev
+$ npm install -g @schibstedspain/<%= component_name %> --save-dev
 ```
 
 ## Usage
