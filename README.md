@@ -4,6 +4,7 @@ A yeoman generator for Schibsted User Interface (**sui**) ReactJS components. Th
 ## Features
 The generator provides a basic structure to start developing a component, including coding standard rules, naming conventions and a unit testing environment. 
 * A basic structure for your component, prepared for npm publishing
+* Automatic installation of all npm dependencies
 * Linting rules for all ```js```, ```jsx```and ```css```files
 * Support for ECMAScript 6
 * Unit tests environment
