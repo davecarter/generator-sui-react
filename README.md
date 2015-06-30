@@ -2,12 +2,12 @@
 A yeoman generator for Schibsted User Interface (**sui**) ReactJS components. The purpose of this generator is intended for atomic or molecular components, never organisms. For more information about atomic design, read the following blog post: http://bradfrost.com/blog/post/atomic-web-design/. 
 
 ## Features
-The generator provides a basic structure to start developing a component, including coding standard rules, naming conventions and a unit testing environment. 
+The generator provides a basic structure to start developing a component, including coding standard rules, naming conventions and a unit testing suite. 
 * A basic structure for your component, prepared for npm publishing
 * Automatic installation of all npm dependencies
 * Linting rules for all ```js```, ```jsx```and ```css```files
 * Support for ECMAScript 6
-* Unit testing environment
+* Unit testing suite
 * A local development environment with webpack
 * Documentation folder
 * Pre-commit rules for launching linting and tests before commiting changes in Github
