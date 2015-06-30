@@ -21,7 +21,7 @@ $ npm install -g yo
 
 ## Installation
 First of all, you must have acces to the Schibsted private npm repository. If you don't have access, ask for it to your domain expert or team leader. 
-For loging in, just type ```npm-login```in your CLI and log in as schibstedspain for accesing our private npm repository. Then, do:
+For loging in, just type ```npm login```in your CLI and log in as schibstedspain for accesing our private npm repository. Then, do:
 ```
 $ npm install -g @schibstedspain/generator-sui-react
 ```
