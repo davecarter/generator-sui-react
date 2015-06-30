@@ -4,32 +4,28 @@
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam commodi esse quis ipsam a iusto aut ratione ex optio ut! Illum alias voluptatibus dolores, perferendis deserunt totam illo reiciendis voluptatem.
 
 ## Instalation
-Clone this repository
-
-run:
-
-````
-$npm install
+Clone this repository and run:
+```
+$ npm install
 ```
 
-## Setup
-
-Run:
-
+## Start working in development mode:
 ```
-$npm run start
+$ npm run dev
 ```
+This command will build your `.sass`, `.jsx` and `.js` files and open a local development environment, with hot reloading. A browser window will be opened as well, showing the entry point of your documents folder for development purposes.
 
+## To work in TDD mode:
+```
+$ npm run test:watch
+```
+## To run unit tests only once:
+```
+$ npm test
+```
+# How to publish an npm package with your component
+## Login to Schibsted private npm repository
+Ask your team leader for the login credentials in order to have access to the npm repository.
 
 ## Usage
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non perspiciatis, quod eum perferendis, facere enim hic. Quibusdam deleniti, distinctio. Molestias error quibusdam quo similique, laborum iste libero dolorum saepe et.
-
-## Testing
-Run:
-
-```
-$ npm run test
-```
-
-## Preview
-Open `index.html` file inside `docs`folder
