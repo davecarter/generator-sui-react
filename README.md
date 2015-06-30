@@ -13,11 +13,7 @@ The generator provides a basic structure to start developing a component, includ
 * Common editor config rules
 
 ## Previous steps
-Assuming you have node and node and npm installed, make sure you also have yeoman installed by typing:
-````
-$ yo
-````
-If the system doesn't recognize the command, install it by typing (http://yeoman.io/):
+You have to install yeoman (http://yeoman.io/) first:
 ````
 $ npm install -g yo
 ````
@@ -41,9 +37,18 @@ $ yo @schibstedspain/sui-react
 You will be prompted about the component name, the prefix you want to use and the Github repository url (which you should be created already), and that's it!
 ## Commands allowed
 ```
-$ npm run dev // starts webpack with hot reloading and launches a browser window
-$ npm test // launches the tests once
-$ npm run test:watch // launches the test suite in TDD mode, watching for changes in background
-$ npm run lint // launches the linting tools
-$ npm run build // builds the component for production
+// Start webpack with hot reloading and open a browser window
+$ npm run dev 
+
+// Launch the tests suite once
+$ npm test
+
+// Run the test suite in TDD mode, watching for changes in background
+$ npm run test:watch
+
+// Run the linting tools
+$ npm run lint
+
+// Builds the component for production
+$ npm run build 
 ```
