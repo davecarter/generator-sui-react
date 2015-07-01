@@ -10,7 +10,7 @@
     "build": "npm run build:scripts && npm run build:styles",
     "build:scripts": "babel src --out-dir dist",
     "build:styles": "node-sass src/index.scss dist/<%= component_name %>.css",
-    "postbuild:styles": "cp dist/<%= component_name %>.css dist/<%= component_name %>.scss",
+    "postbuild:styles": "cp dist/<%= component_name %>.css dist/_<%= component_name %>.scss",
     "postinstall": "npm run build",
 
     "lint": "npm run lint:jscs && npm run lint:eslint && npm run lint:css",

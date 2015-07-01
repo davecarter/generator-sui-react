@@ -77,7 +77,7 @@ module.exports = generators.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('src/component/_component.scss'),
-      this.destinationPath('src/' + this.component_name + '/' + this.component_name + '.scss'),
+      this.destinationPath('src/' + this.component_name + '/_' + this.component_name + '.scss'),
       { 
         component_name: this.component_name,
         pascal_name: this.pascal_name 
