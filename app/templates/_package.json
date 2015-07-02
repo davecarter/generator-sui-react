@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "<%= github_url %>"
+    "url": "<%= git_url %>"
   },
   "pre-commit": [
     "lint",

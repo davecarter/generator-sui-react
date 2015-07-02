@@ -22,8 +22,8 @@ module.exports = generators.Base.extend({
     },
     {
       type    : 'input',
-      name    : 'github_url',
-      message : 'What is your component remote github repository url',
+      name    : 'git_url',
+      message : 'What is your component remote git repository url',
       required : true
     }], function (answers) {
       var prefix = answers.prefix.replace('-', '');
@@ -31,7 +31,7 @@ module.exports = generators.Base.extend({
                           ? dasherize(answers.name)
                           : dasherize(answers.prefix + '-' + answers.name);
       this.pascal_name = pascalCase(this.component_name.replace( answers.prefix, '' ));
-      this.github_url = answers.github_url;
+      this.git_url = answers.git_url;
       done();
     }.bind(this));
   },
@@ -41,7 +41,7 @@ module.exports = generators.Base.extend({
       this.destinationPath('package.json'),
       { 
         component_name: this.component_name,
-        github_url: this.github_url
+        git_url: this.git_url
       }
     );
 
@@ -125,7 +125,7 @@ module.exports = generators.Base.extend({
   },
   installing: function(){
     this.spawnCommand('git', ['init']).on('close', function(){
-      this.spawnCommand('git', ['remote', 'add', 'origin', this.github_url]);
+      this.spawnCommand('git', ['remote', 'add', 'origin', this.git_url]);
     }.bind(this));
     this.npmInstall();
   }
