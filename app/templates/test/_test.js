@@ -1,5 +1,6 @@
 import React from 'react';
 import TestUtils from 'react/lib/ReactTestUtils';
+import {createComponent} from './utilities';
 import expect from 'expect';
 import <%= pascal_name %> from '../src/<%= component_name %>';
 
