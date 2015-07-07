@@ -11,7 +11,7 @@ $ npm install
 
 ## Dependencies
 
-To running the lint tasks we have dependencies of:
+To run the lint tasks we have dependencies of:
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
 * [scss-lint](https://github.com/brigade/scss-lint)
