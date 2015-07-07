@@ -1,16 +1,29 @@
-var assert = require("assert");
-var React = require('react');
-var TestUtils = require('react/lib/ReactTestUtils');
-var expect = require('expect');
-var <%= pascal_name %> = require('../src/<%= component_name %>');
+import React from 'react';
+import TestUtils from 'react/lib/ReactTestUtils';
+import expect from 'expect';
+import <%= pascal_name %> from '../src/<%= component_name %>';
 
 describe('<%= component_name %> component test suite', function () {
-  it('loads without problems', function () {
-    assert.notEqual(undefined, <%= pascal_name %>);
+
+  describe('loading', function() {
+    it('component is loaded properly', function () {
+      expect(<%= pascal_name %>).toNotBe(undefined);
+    });
   });
 
-  it('renders into document', function() {
-    var root = TestUtils.renderIntoDocument(<<%= pascal_name %> />);
-    expect(root).toExist();
+  describe('<%= component_name %> renders properly', function () {
+    let component;
+
+    beforeEach(() => {
+      component = createComponent(<%= pascal_name %>);
+    });
+
+    afterEach(() => {
+      component = null;
+    });
+
+    it('renders correctly', function() {
+      expect(component).toExist();
+    });
   });
 });

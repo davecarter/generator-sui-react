@@ -46,10 +46,6 @@ module.exports = generators.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('_karma.conf.js'),
-      this.destinationPath('karma.conf.js'));
-
-    this.fs.copyTpl(
       this.templatePath('_webpack.config.js'),
       this.destinationPath('webpack.config.js'));
 
@@ -65,6 +61,10 @@ module.exports = generators.Base.extend({
         pascal_name: this.pascal_name 
       }
     );
+
+    this.fs.copyTpl(
+      this.templatePath('test/utilities/_index.js'),
+      this.destinationPath('test/utilities/index.js'));
 
     this.fs.copyTpl(
       this.templatePath('src/component/_index.jsx'),
