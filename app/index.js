@@ -26,11 +26,12 @@ module.exports = generators.Base.extend({
       message : 'What is your component remote git repository url',
       required : true
     }], function (answers) {
-      var prefix = answers.prefix.replace('-', '');
-      this.component_name = answers.name.match( prefix + '-?' ) != null
+      this.prefix = answers.prefix.replace('-', '');
+      this.component_name = answers.name.match( this.prefix + '-?' ) != null
                           ? dasherize(answers.name)
-                          : dasherize(answers.prefix + '-' + answers.name);
-      this.pascal_name = pascalCase(this.component_name.replace( answers.prefix, '' ));
+                          : dasherize(this.prefix + '-' + answers.name);
+      this.pascal_name = pascalCase(this.component_name.replace( this.prefix, '' ));
+      this.SUIT_name = this.prefix + '-' + this.pascal_name;
       this.git_url = answers.git_url;
       done();
     }.bind(this));
@@ -79,8 +80,7 @@ module.exports = generators.Base.extend({
       this.templatePath('src/component/_component.scss'),
       this.destinationPath('src/' + this.component_name + '/_' + this.component_name + '.scss'),
       { 
-        component_name: this.component_name,
-        pascal_name: this.pascal_name 
+        suit_component_name: this.SUIT_name,
       }
     );
 
