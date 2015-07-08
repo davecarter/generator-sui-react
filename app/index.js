@@ -71,8 +71,8 @@ module.exports = generators.Base.extend({
       this.templatePath('src/component/_index.jsx'),
       this.destinationPath('src/' + this.component_name + '/index.jsx'),
       { 
-        component_name: this.component_name,
-        pascal_name: this.pascal_name 
+        pascal_name: this.pascal_name,
+        suit_component_name: this.SUIT_name
       }
     );
 

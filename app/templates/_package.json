@@ -4,7 +4,6 @@
   "main": "dist/",
   "scripts": {
     "clean:dist": "rimraf ./dist/*",
-    "clean:tmp": "rimraf .tmp/",
 
     "prebuild": "npm run clean:dist -s",
     "build": "npm run build:scripts && npm run build:styles",
@@ -17,7 +16,6 @@
     "lint:jscs": "cat ./{src,test}/**/*.{js,jsx} | jscs",
     "lint:eslint": "eslint --ext=\".js\" --ext=\".jsx\" src/",
     "lint:sass": "scss-lint src/",
-    "postlint": "npm run clean:tmp",
 
     "test": "mocha --compilers js:babel/register --recursive",
     "test:watch": "npm run test -- -w test src --watch-extensions jsx",
@@ -26,10 +24,9 @@
     "dev:serve": "webpack-dev-server --devtool eval --progress --colors --content-base docs/",
     "dev:open": "opener http://localhost:8080",
 
-    "predoc": "npm run clean:dist",
+    "predoc": "webpack --config webpack.doc.config.js",
     "doc": "npm run doc:build",
-    "doc:build": "webpack --config webpack.doc.config.js",
-    "postdoc": "cp -r docs/ ."
+    "doc:build": "gh-pages -d docs"
   },
   "repository": {
     "type": "git",
@@ -54,6 +51,7 @@
     "eslint": "~0.23.0",
     "eslint-plugin-react": "~2.5.0",
     "expect": "^1.6.0",
+    "gh-pages": "^0.3.1",
     "jscs": "~1.13.1",
     "lodash": "~3.9.3",
     "mocha": "^2.2.5",
