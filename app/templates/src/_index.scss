@@ -1,2 +1,2 @@
-@import '@schibstedspain/theme-sui/src/_settings.scss';
-@import './<%= component_name %>/_<%= component_name %>.scss';
+@import '@schibstedspain/theme-sui/src/settings';
+@import './<%= component_name %>/<%= component_name %>';

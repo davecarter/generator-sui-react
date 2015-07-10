@@ -1,19 +1,22 @@
 var path = require('path');
 var fs = require('fs');
-var control = 0;
+
 module.exports = function (url, file, done) {
-  recursiveFind(url, file, done);
+  if(url.indexOf('@schibstedspain/') !== -1){
+    done({ file: recursiveFind(url)});
+  } else {
+    return done({file: url});
+  }
 }
 
-function recursiveFind(url, file, done){
-  control ++;
-  if (control == 10)
-    return;
+function recursiveFind(url){
+  const urlTree = url.split(path.sep);
+  urlTree.pop();
+  const folder = path.join(__dirname, '../node_modules', urlTree.join(path.sep));
 
-  fs.access(path.join(__dirname, '../src', url), fs.R_OK, function(err){
-    if (err) {
-      return recursiveFind(path.join('../', url), file, done);
-    }
-    done({ file: url });
-  });
+  if(!fs.existsSync(folder)) {
+    return recursiveFind(path.join('../', url));
+  } else {
+    return url;
+  }
 }
