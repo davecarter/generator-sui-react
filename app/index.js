@@ -94,6 +94,10 @@ module.exports = generators.Base.extend({
     );
 
     this.fs.copyTpl(
+      this.templatePath('src/_style.scss'),
+      this.destinationPath('src/style.scss'));
+
+    this.fs.copyTpl(
       this.templatePath('src/_index.scss'),
       this.destinationPath('src/index.scss'),
       { component_name: this.component_name }

@@ -28,6 +28,15 @@ $ npm install -g yo
 $ npm install -g @schibstedspain/generator-sui-react
 ```
 
+## Dependencies
+
+To run the lint tasks we have dependencies of:
+
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* [scss-lint](https://github.com/brigade/scss-lint)
+
+If that tools are not installed you cant commit. Because the lint pass never will be ok.
+
 ## Create your first package
 Create a folder for your component in the desired path with:
 ```
