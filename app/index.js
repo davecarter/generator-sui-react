@@ -55,6 +55,10 @@ module.exports = generators.Base.extend({
       this.destinationPath('webpack.doc.config.js'));
 
     this.fs.copyTpl(
+      this.templatePath('scripts/_importer.js'),
+      this.destinationPath('scripts/importer.js'));
+
+    this.fs.copyTpl(
       this.templatePath('test/_test.js'),
       this.destinationPath('test/' + this.component_name + '-test.js'),
       { 
