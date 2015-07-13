@@ -2,12 +2,12 @@ var path = require('path');
 var fs = require('fs');
 
 module.exports = function (url, file, done) {
-  if (url[0] === '.') {
-    return done({file: url});
+  if (url[0] === '~') {
+    done({file: recursiveFind(url.replace('~', ''))});
   } else {
-    done({file: recursiveFind(url)});
+    return done({file: url});
   }
-}
+};
 
 function recursiveFind(url) {
   const urlTree = url.split(path.sep);
@@ -21,6 +21,6 @@ function recursiveFind(url) {
   if (!fs.existsSync(folder)) {
     return recursiveFind(path.join('../', url));
   } else {
-    return url;
+    return path.join('../node_modules', url);
   }
 }
