@@ -133,7 +133,11 @@ module.exports = generators.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('_README.md'),
-      this.destinationPath('README.md'));
+      this.destinationPath('README.md'),
+      { 
+        component_name: this.component_name,
+      }
+    );
 
   },
   installing: function(){
