@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/generator-sui-react",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "description": "A generator for react components",
   "main": "index.js",
   "repository": {
