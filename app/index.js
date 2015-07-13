@@ -131,6 +131,10 @@ module.exports = generators.Base.extend({
       this.templatePath('_npmignore'),
       this.destinationPath('.npmignore'));
 
+    this.fs.copyTpl(
+      this.templatePath('_README.md'),
+      this.destinationPath('README.md'));
+
   },
   installing: function(){
     this.spawnCommand('git', ['init']).on('close', function(){
