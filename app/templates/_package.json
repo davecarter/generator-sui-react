@@ -5,12 +5,12 @@
   "scripts": {
     "clean:dist": "rm -Rf ./dist/*",
 
-    "prebuild": "npm run clean:dist -s",
-    "build": "npm run build:scripts && npm run build:styles",
-    "build:scripts": "babel src --out-dir dist",
-    "build:styles": "node-sass src/index.scss dist/<%= component_name %>.css --importer ./scripts/importer.js",
-    "postbuild:styles": "cp dist/<%= component_name %>.css dist/_<%= component_name %>.scss",
-    "postinstall": "npm run build",
+    "predist": "npm run clean:dist -s",
+    "dist": "npm run dist:scripts && npm run dist:styles",
+    "dist:scripts": "babel src --out-dir dist",
+    "dist:styles": "node-sass src/index.scss dist/<%= component_name %>.css --importer ./scripts/importer.js",
+    "postdist:styles": "cp dist/<%= component_name %>.css dist/_<%= component_name %>.scss",
+    "prepublish": "npm run dist",
 
     "lint": "npm run lint:jscs && npm run lint:eslint && npm run lint:sass",
     "lint:jscs": "cat ./{src,test}/**/*.{js,jsx} | jscs",
