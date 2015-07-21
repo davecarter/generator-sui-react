@@ -1,11 +1,11 @@
 {
   "name": "@schibstedspain/generator-sui-react",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "A generator for react components",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:scm-spain/generator-sui-react.git"
+    "url": "git@github.com:SUI-Components/generator-sui-react.git"
   },
   "keywords": [
     "yeoman-generator",
@@ -26,6 +26,11 @@
       "name": "Carlos Villuendas",
       "email": "carlos.villuendas@scmspain.com",
       "url": "https://github.com/carlosvillu"
+    },
+    {
+      "name": "Joan Leon",
+      "email": "joan.leon@infojobs.net",
+      "url": "https://github.com/nucliweb"
     }
   ],
   "license": "ISC",
