@@ -1,6 +1,9 @@
-[![NPM Version][npm-image]][npm-url]
-
 # generator-sui-react
+
+[![NPM Version][npm-image]][npm-url]
+![Dependency Ruby][dep-ruby-image]
+![Dependency scss-lint][dep-scss-image]
+
 A yeoman generator for Schibsted User Interface (**sui**) ReactJS components. The purpose of this generator is intended for atomic or molecular components, never organisms. For more information about atomic design, read the following blog post: http://bradfrost.com/blog/post/atomic-web-design/.
 
 ## Features
@@ -69,3 +72,5 @@ $ npm run build
 
 [npm-image]: https://img.shields.io/npm/v/@schibstedspain/generator-sui-react.svg?style=flat
 [npm-url]: https://npmjs.com/@schibstedspain/generator-sui-react
+[dep-ruby-image]: https://img.shields.io/badge/dependency-Ruby-%23CC342D.svg?style=flat
+[dep-scss-image]: https://img.shields.io/badge/dependency-Scss%20Lint-%23c6538c.svg?style=flat
