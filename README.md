@@ -1,8 +1,8 @@
 # generator-sui-react
 
 [![NPM Version][npm-image]][npm-url]
-![Dependency Ruby][dep-ruby-image]
-![Dependency scss-lint][dep-scss-image]
+[![Dependency Ruby][dep-ruby-image]][ruby-url]
+[![Dependency scss-lint][dep-scss-image]][scss-lint-url]
 
 A yeoman generator for Schibsted User Interface (**sui**) ReactJS components. The purpose of this generator is intended for atomic or molecular components, never organisms. For more information about atomic design, read the following blog post: http://bradfrost.com/blog/post/atomic-web-design/.
 
@@ -37,8 +37,8 @@ $ npm install -g @schibstedspain/generator-sui-react
 
 To run the lint tasks we have dependencies of:
 
-* [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [scss-lint](https://github.com/brigade/scss-lint)
+* [Ruby][ruby-url]
+* [scss-lint][scss-lint-url]
 
 If that tools are not installed you cant commit. Because the lint pass never will be ok.
 
@@ -72,5 +72,7 @@ $ npm run build
 
 [npm-image]: https://img.shields.io/npm/v/@schibstedspain/generator-sui-react.svg?style=flat
 [npm-url]: https://npmjs.com/@schibstedspain/generator-sui-react
-[dep-ruby-image]: https://img.shields.io/badge/dependency-Ruby-%23CC342D.svg?style=flat
-[dep-scss-image]: https://img.shields.io/badge/dependency-Scss%20Lint-%23c6538c.svg?style=flat
+[dep-ruby-image]: https://img.shields.io/badge/dependency-Ruby-CC342D.svg?style=flat
+[ruby-url]: https://www.ruby-lang.org/en/downloads/
+[dep-scss-image]: https://img.shields.io/badge/dependency-Scss%20Lint-c6538c.svg?style=flat
+[scss-lint-url]: https://github.com/brigade/scss-lint
