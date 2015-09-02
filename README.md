@@ -1,70 +1,78 @@
-# sui-card React Component
+# generator-sui-react
 
-Wrapper component to define a **card** structured content based in the following structure:
+[![NPM Version][npm-image]][npm-url]
+[![Dependency Ruby][dep-ruby-image]][ruby-url]
+[![Dependency scss-lint][dep-scss-image]][scss-lint-url]
 
-- **sui-card-media**: A placeholder to display a picture. If no picture is passed a generic icon will be displayed instead.
+A yeoman generator for Schibsted User Interface (**sui**) ReactJS components. The purpose of this generator is intended for atomic or molecular components, never organisms. For more information about atomic design, read the following blog post: http://bradfrost.com/blog/post/atomic-web-design/.
 
-- **sui-card-content**: A placeholder to fit any content based on your core business needs.
+## Features
+The generator provides a basic structure to start developing a component, including coding standard rules, naming conventions and a unit testing suite.
+* A basic structure for your component, prepared for npm publishing
+* Automatic installation of all npm dependencies
+* Linting rules for all ```js```, ```jsx``` and ```css``` files
+* Support for ECMAScript 6
+* Unit testing suite
+* A local development environment with webpack
+* Documentation folder
+* Pre-commit rules for launching linting and tests before commiting changes in Github
+* Common editor config rules
 
-## Instalation
-Clone the repo.
-CD to folder `sui-card`
+## Previous steps
+Make sure Node.js is installed on your computer.
 
-run:
+Install it from [nodejs.org/download](http://nodejs.org/download)
 
+You have to install yeoman (http://yeoman.io/) first:
+````
+$ npm install -g yo
+````
+
+## Installation
 ```
-$ npm install
+$ npm install -g @schibstedspain/generator-sui-react
 ```
 
-## Setup
+## Dependencies
 
-Run:
+To run the lint tasks we have dependencies of:
 
+* [Ruby][ruby-url]
+* [scss-lint][scss-lint-url]
+
+If that tools are not installed you cant commit. Because the lint pass never will be ok.
+
+## Create your first package
+Create a folder for your component in the desired path with:
 ```
+$ mkdir your-component-name
+```
+Launch the generator by typing:
+```
+$ yo @schibstedspain/sui-react
+```
+You will be prompted about the component name, the prefix you want to use and the Github repository url (which you should be created already), and that's it!
+## Commands allowed
+```
+// Start webpack with hot reloading and open a browser window
 $ npm run dev
-```
 
+// Launch the tests suite once
+$ npm test
 
-## Usage
-The sui-card component is basically a block container to load dinamic content inside.
-Example:
-```
-React.render(<Card
-    cardcontent={'Lorem ipsum dolor sit amet'}
-    multimediaUrl={'http://placehold.it/300x150'}
-  />,
-  document.getElementById('main'));
-```
+// Run the test suite in TDD mode, watching for changes in background
+$ npm run test:watch
 
-It renders a cleared generic `div` element with and increased padding-bottom in screen resolutions smaller than 750px to better fit smaller screens.
+// Run the linting tools
+$ npm run lint
 
-## Bundle
-In order to generate the bundle including all React dependencies and the component logic we need to bundle a single JS file running the following command:
-```
+// Builds the component for production
 $ npm run build
 ```
 
-## Testing
-Execute a complete test by running:
-
-```
-$ npm run test
-```
-In addition, you can run specific test for linting JS and SASS:
-SASS: (SASS linting rules specified in file `.scss-lint.yml`)
-
-```
-$ npm run lint:sass
-```
-JS (JS linting rules specified in file `.jscsrc`)
-
-```
-$ npm run lint:jscs
-```
-
-## Preview
-- Clone the repo and open `index.html` file inside `docs` folder <br />
-
-## ToDo
-- Add NPM package
-- Add Github pages demo
+[npm-image]: https://img.shields.io/npm/v/@schibstedspain/generator-sui-react.svg?style=flat
+[npm-url]: https://npmjs.com/@schibstedspain/generator-sui-react
+[dep-ruby-image]: https://img.shields.io/badge/dependency-Ruby-CC342D.svg?style=flat
+[ruby-url]: https://www.ruby-lang.org/en/downloads/
+[dep-scss-image]: https://img.shields.io/badge/dependency-Scss%20Lint-c6538c.svg?style=flat
+[scss-lint-url]: https://github.com/brigade/scss-lint
