@@ -1,5 +1,5 @@
 import React from 'react';
-import {<%= pascal_name %>} from '../src';
+import <%= pascal_name %> from '../src';
 import './style.scss';
 import '../src/index.scss';
 
