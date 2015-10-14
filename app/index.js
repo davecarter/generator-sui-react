@@ -40,7 +40,7 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'),
-      { 
+      {
         component_name: this.component_name,
         git_url: this.git_url
       }
@@ -61,9 +61,9 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('test/_test.js'),
       this.destinationPath('test/' + this.component_name + '-test.js'),
-      { 
+      {
         component_name: this.component_name,
-        pascal_name: this.pascal_name 
+        pascal_name: this.pascal_name
       }
     );
 
@@ -74,7 +74,7 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('src/component/_index.jsx'),
       this.destinationPath('src/' + this.component_name + '/index.jsx'),
-      { 
+      {
         pascal_name: this.pascal_name,
         suit_component_name: this.SUIT_name
       }
@@ -83,7 +83,7 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('src/component/_component.scss'),
       this.destinationPath('src/' + this.component_name + '/_' + this.component_name + '.scss'),
-      { 
+      {
         suit_component_name: this.SUIT_name,
       }
     );
@@ -91,9 +91,9 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('src/_index.jsx'),
       this.destinationPath('src/index.jsx'),
-      { 
+      {
         component_name: this.component_name,
-        pascal_name: this.pascal_name 
+        pascal_name: this.pascal_name
       }
     );
 
@@ -112,9 +112,9 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('docs/_index.jsx'),
       this.destinationPath('docs/index.jsx'),
-      { 
+      {
         component_name: this.component_name,
-        pascal_name: this.pascal_name 
+        pascal_name: this.pascal_name
       }
     );
 
@@ -126,15 +126,19 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_gitignore'),
       this.destinationPath('.gitignore'));
-    
+
     this.fs.copyTpl(
       this.templatePath('_npmignore'),
       this.destinationPath('.npmignore'));
 
     this.fs.copyTpl(
+      this.templatePath('_eslintignore'),
+      this.destinationPath('.eslintignore'));
+
+    this.fs.copyTpl(
       this.templatePath('_README.md'),
       this.destinationPath('README.md'),
-      { 
+      {
         component_name: this.component_name,
       }
     );
