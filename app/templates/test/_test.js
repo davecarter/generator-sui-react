@@ -1,30 +1,29 @@
-import React from 'react';
-import TestUtils from 'react/lib/ReactTestUtils';
-import {createComponent} from './utilities';
 import expect from 'expect';
 import <%= pascal_name %> from '../src/<%= component_name %>';
+import React from 'react';
+import {createComponent, shallowRender} from './utilities';
 
 describe('<%= component_name %> component test suite', function () {
 
   describe('loading', function() {
-    it('component is loaded properly', function () {
+    it('all components are loaded properly', function () {
       expect(<%= pascal_name %>).toNotBe(undefined);
     });
   });
 
-  describe('<%= component_name %> renders properly', function () {
-    let component;
+  describe('<%= pascal_name %> component', function() {
+    let card;
 
     beforeEach(() => {
-      component = createComponent(<%= pascal_name %>);
+      card = shallowRender(<%= pascal_name %>, { landscapeLayout: false });
     });
 
     afterEach(() => {
-      component = null;
+      card = null;
     });
 
     it('renders correctly', function() {
-      expect(component).toExist();
+      expect(card).toExist();
     });
   });
 });
