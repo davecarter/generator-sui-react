@@ -41,7 +41,7 @@
     "babel-eslint": "~3.1.14",
     "babel-loader": "^5.1.4",
     "css-loader": "^0.15.3",
-    "eslint": "~0.23.0",
+    "eslint": "1.6.0",
     "eslint-plugin-react": "~2.5.0",
     "expect": "^1.6.0",
     "gh-pages": "^0.3.1",
