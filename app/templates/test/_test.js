@@ -1,7 +1,6 @@
 import expect from 'expect';
 import <%= pascal_name %> from '../src/<%= component_name %>';
-import React from 'react';
-import {createComponent, shallowRender} from './utilities';
+import {shallowRender} from './utilities';
 
 describe('<%= component_name %> component test suite', function () {
 
