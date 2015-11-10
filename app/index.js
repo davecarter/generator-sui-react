@@ -128,6 +128,10 @@ module.exports = generators.Base.extend({
       this.destinationPath('.gitignore'));
 
     this.fs.copyTpl(
+      this.templatePath('_babelrc'),
+      this.destinationPath('.babelrc'));
+
+    this.fs.copyTpl(
       this.templatePath('_npmignore'),
       this.destinationPath('.npmignore'));
 
