@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/generator-sui-react",
-  "version": "3.3.4",
+  "version": "3.3.5",
   "description": "A generator for react components",
   "main": "index.js",
   "repository": {
@@ -9,7 +9,11 @@
   },
   "keywords": [
     "yeoman-generator",
+    "generator",
     "react"
+  ],
+  "files": [
+    "app"
   ],
   "contributors": [
     {
@@ -35,8 +39,8 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "pascal-case": "^1.1.1",
-    "underscore.string": "^3.1.1",
-    "yeoman-generator": "^0.20.1"
+    "pascal-case": "1.1.1",
+    "underscore.string": "3.1.1",
+    "yeoman-generator": "0.21.1"
   }
 }
