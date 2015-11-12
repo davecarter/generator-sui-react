@@ -68,10 +68,6 @@ module.exports = generators.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('test/utilities/_index.js'),
-      this.destinationPath('test/utilities/index.js'));
-
-    this.fs.copyTpl(
       this.templatePath('src/component/_index.jsx'),
       this.destinationPath('src/' + this.component_name + '/index.jsx'),
       {
