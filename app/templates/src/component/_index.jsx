@@ -1,10 +1,6 @@
 import React from 'react';
 
-class <%= pascal_name %> extends React.Component {
-  constructor(){
-    super();
-  }
-
+export default class <%= pascal_name %> extends React.Component {
   render() {
     return (
       <div className='<%= suit_component_name %>'>
@@ -15,5 +11,3 @@ class <%= pascal_name %> extends React.Component {
     );
   }
 }
-
-export default <%= pascal_name %>;
