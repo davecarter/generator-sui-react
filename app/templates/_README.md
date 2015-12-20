@@ -9,15 +9,6 @@ Clone this repository and run:
 $ npm install
 ```
 
-## Dependencies
-
-To run the lint tasks we have dependencies of:
-
-* [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [scss-lint](https://github.com/brigade/scss-lint)
-
-If that tools are not installed you cant commit. Because the lint pass never will be ok.
-
 ## Start working in development mode:
 ```
 $ npm run dev

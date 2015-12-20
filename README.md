@@ -1,17 +1,15 @@
 # generator-sui-react
 
 [![NPM Version][npm-image]][npm-url]
-[![Dependency Ruby][dep-ruby-image]][ruby-url]
-[![Dependency scss-lint][dep-scss-image]][scss-lint-url]
 
-A yeoman generator for Schibsted User Interface (**sui**) ReactJS components. The purpose of this generator is intended for atomic or molecular components, never organisms. For more information about atomic design, read the following blog post: http://bradfrost.com/blog/post/atomic-web-design/.
+A yeoman generator for Schibsted User Interface (**sui**) ReactJS components. The purpose of this generator is intended for creating atomic or molecular components, never organisms. For more information about atomic design, read the following blog post: http://bradfrost.com/blog/post/atomic-web-design/.
 
 ## Features
 The generator provides a basic structure to start developing a component, including coding standard rules, naming conventions and a unit testing suite.
 * A basic structure for your component, prepared for npm publishing
 * Automatic installation of all npm dependencies
-* Linting rules for all ```js```, ```jsx``` and ```css``` files
-* Support for ECMAScript 6
+* Linting rules for all `js`, `jsx`, `s(c|a)ss` and `css` files
+* Support for ECMAScript2015
 * Unit testing suite
 * A local development environment with webpack
 * Documentation folder
@@ -32,15 +30,6 @@ $ npm install -g yo
 ```
 $ npm install -g @schibstedspain/generator-sui-react
 ```
-
-## Dependencies
-
-To run the lint tasks we have dependencies of:
-
-* [Ruby][ruby-url]
-* [scss-lint][scss-lint-url]
-
-If that tools are not installed you cant commit. Because the lint pass never will be ok.
 
 ## Create your first package
 Create a folder for your component in the desired path with:
@@ -72,7 +61,3 @@ $ npm run build
 
 [npm-image]: https://img.shields.io/npm/v/@schibstedspain/generator-sui-react.svg?style=flat
 [npm-url]: https://npmjs.com/@schibstedspain/generator-sui-react
-[dep-ruby-image]: https://img.shields.io/badge/dependency-Ruby-CC342D.svg?style=flat
-[ruby-url]: https://www.ruby-lang.org/en/downloads/
-[dep-scss-image]: https://img.shields.io/badge/dependency-Scss%20Lint-c6538c.svg?style=flat
-[scss-lint-url]: https://github.com/brigade/scss-lint
