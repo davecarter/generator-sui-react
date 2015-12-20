@@ -11,7 +11,7 @@ The generator provides a basic structure to start developing a component, includ
 * A basic structure for your component, prepared for npm publishing
 * Automatic installation of all npm dependencies
 * Linting rules for all ```js```, ```jsx``` and ```css``` files
-* Support for ECMAScript 6
+* Support for [ES2015](https://babeljs.io/docs/learn-es2015/)
 * Unit testing suite
 * A local development environment with webpack
 * Documentation folder
