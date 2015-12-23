@@ -11,7 +11,7 @@
     "prepublish": "npm run dist",
     "lint": "npm run lint:eslint && npm run lint:sass",
     "lint:eslint": "eslint --ext=.js --ext=.jsx ./src/ ./test/ ./docs/",
-    "lint:sass": "scss-lint src/",
+    "lint:sass": "sass-lint src/**/*.scss -c -v",
     "test": "mocha --compilers js:babel-core/register --recursive",
     "test:watch": "npm run test -- -w test src --watch-extensions jsx",
     "dev": "npm run dev:open && npm run dev:serve",
@@ -56,6 +56,7 @@
     "react": "0.14.3",
     "react-dom": "0.14.3",
     "sass-loader": "3.1.2",
+    "sass-lint": "1.4.0",
     "style-loader": "0.13.0",
     "webpack": "1.12.9",
     "webpack-dev-server": "1.14.0"
