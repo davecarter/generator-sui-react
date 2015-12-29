@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "dist/",
   "scripts": {
-    "clean:dist": "rm -Rf ./dist/*",
+    "clean:dist": "rimraf ./dist/*",
     "predist": "npm run clean:dist -s",
     "dist": "npm run dist:scripts && npm run dist:styles",
     "dist:scripts": "babel src --out-dir dist",
@@ -55,6 +55,7 @@
     "opener": "1.4.1",
     "react": "0.14.3",
     "react-dom": "0.14.3",
+    "rimraf": "^2.5.0",
     "sass-loader": "3.1.2",
     "sass-lint": "1.4.0",
     "style-loader": "0.13.0",
