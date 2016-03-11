@@ -29,7 +29,7 @@ var base = {
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
        }
     }),
-    new ExtractTextPlugin('bundle/index.css', {
+    new ExtractTextPlugin('dist/index.css', {
       allChunks: true
     })
   ]
@@ -43,8 +43,8 @@ if(TARGET === 'start:server' || !TARGET) {
       path.resolve(__dirname, 'docs/index.jsx')
     ],
     output: {
-      path: path.resolve(__dirname, 'docs/bundle'),
-      filename: 'bundle/index.js'
+      path: path.resolve(__dirname, 'docs/dist'),
+      filename: 'dist/index.js'
     },
     devServer: {
       port: 8080,
@@ -60,11 +60,11 @@ if(TARGET === 'start:server' || !TARGET) {
 }
 
 
-if(TARGET === 'bundle') {
+if(TARGET === 'dist') {
   module.exports = merge(base, {
     entry: path.resolve(__dirname, 'docs/index.jsx'),
     output: {
-      filename: 'bundle/index.js'
+      filename: 'dist/index.js'
     },
     plugins: [
       new webpack.optimize.UglifyJsPlugin({
