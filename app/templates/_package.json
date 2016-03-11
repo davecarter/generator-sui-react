@@ -4,22 +4,26 @@
   "main": "dist/",
   "scripts": {
     "clean:dist": "rimraf ./dist/*",
+    "clean:bundle": "rimraf ./bundle/*",
+    "prebundle": "npm run clean:bundle -s",
+    "bundle": "webpack",
     "predist": "npm run clean:dist -s",
     "dist": "npm run dist:scripts && npm run dist:styles",
     "dist:scripts": "babel src --out-dir dist",
     "dist:styles": "copyfiles -u 1 './src/**/*.scss' dist",
-    "prepublish": "npm run dist",
+    "prepublish": "npm run dist && npm run bundle",
     "lint": "npm run lint:eslint && npm run lint:sass",
     "lint:eslint": "eslint --ext=.js --ext=.jsx ./src/ ./test/ ./docs/",
     "lint:sass": "sass-lint src/**/*.scss -c -v",
     "test": "mocha --compilers js:babel-register --recursive",
     "test:watch": "npm run test -- -w test src --watch-extensions jsx",
-    "dev": "npm run dev:open && npm run dev:serve",
-    "dev:serve": "webpack-dev-server --devtool eval --progress --colors --content-base docs/",
-    "dev:open": "opener http://localhost:8080",
-    "predoc": "webpack --config webpack.doc.config.js",
-    "doc": "npm run doc:build",
-    "doc:build": "gh-pages -d docs",
+    "start": "npm run start:open && npm run start:server",
+    "start:server": "webpack-dev-server",
+    "start:open": "opener http://localhost:8080",
+    "predoc": "rimraf ./docs/bundle/*",
+    "doc": "npm run bundle && npm run doc:copy && npm run doc:publish",
+    "doc:copy": "copyfiles ./bundle/* ./docs/",
+    "doc:publish": "gh-pages -d docs",
     "phoenix": "rimraf ./node_modules/ && npm install"
   },
   "license": "MIT",
@@ -35,8 +39,8 @@
     "react": "0.14"
   },
   "devDependencies": {
-    "@schibstedspain/frontend-pre-commit-rules": "latest",
-    "@schibstedspain/theme-basic": "latest",
+    "@schibstedspain/frontend-pre-commit-rules": "6.6.1",
+    "@schibstedspain/theme-basic": "3.0.1",
     "babel": "6.5.2",
     "babel-cli": "6.6.5",
     "babel-core": "6.7.2",
@@ -49,6 +53,7 @@
     "css-loader": "0.23.1",
     "eslint": "2.3.0",
     "eslint-plugin-react": "4.2.1",
+    "extract-text-webpack-plugin": "1.0.1",
     "gh-pages": "0.11.0",
     "mocha": "2.4.5",
     "node-sass": "3.4.2",
@@ -61,6 +66,7 @@
     "sass-loader": "3.1.2",
     "style-loader": "0.13.0",
     "webpack": "1.12.14",
-    "webpack-dev-server": "1.14.1"
+    "webpack-dev-server": "1.14.1",
+    "webpack-merge": "0.8.3"
   }
 }
