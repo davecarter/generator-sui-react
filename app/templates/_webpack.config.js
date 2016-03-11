@@ -18,6 +18,9 @@ var base = {
       test: /\.jsx?$/,
       loaders: ['babel-loader'],
       exclude: path.join(__dirname, 'node_modules')
+    }, {
+      test: /\.s?css$/,
+      loader: ExtractTextPlugin.extract('css!sass')
     }]
   },
   plugins: [
@@ -25,6 +28,9 @@ var base = {
       'process.env': {
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
        }
+    }),
+    new ExtractTextPlugin('bundle/index.css', {
+      allChunks: true
     })
   ]
 }
@@ -37,8 +43,8 @@ if(TARGET === 'start:server' || !TARGET) {
       path.resolve(__dirname, 'docs/index.jsx')
     ],
     output: {
-      path: path.resolve(__dirname, 'docs/dist'),
-      filename: 'dist/index.js'
+      path: path.resolve(__dirname, 'docs/bundle'),
+      filename: 'bundle/index.js'
     },
     devServer: {
       port: 8080,
@@ -47,12 +53,6 @@ if(TARGET === 'start:server' || !TARGET) {
       contentBase: 'docs'
     },
     devtool: 'source-map',
-    module: {
-      loaders: [{
-        test: /\.s?css$/,
-        loader: 'style!css!sass'
-      }]
-    },
     plugins: [
       new webpack.HotModuleReplacementPlugin()
     ]
@@ -66,20 +66,11 @@ if(TARGET === 'bundle') {
     output: {
       filename: 'bundle/index.js'
     },
-    module: {
-      loaders: [{
-        test: /\.s?css$/,
-        loader: ExtractTextPlugin.extract('css!sass')
-      }]
-    },
     plugins: [
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
         }
-      }),
-      new ExtractTextPlugin('bundle/index.css', {
-        allChunks: true
       })
     ]
   });
