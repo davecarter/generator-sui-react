@@ -64,3 +64,9 @@ Temporary Items
 *.css.map
 .tmp/
 dist/
+
+### eslint ###
+.editorconfig
+.eslintrc
+.scss-lint.yml
+.sass-lint.yml
